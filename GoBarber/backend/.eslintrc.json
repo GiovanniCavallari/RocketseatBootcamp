@@ -34,6 +34,6 @@
     ],
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
-    "camelcase": "warn"
+    "camelcase": "off"
   }
 }

@@ -1,7 +1,8 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import Appointment from './Appointment';
 
-@Entity('appointments')
-class Appointment {
+@Entity('users')
+class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -19,6 +20,9 @@ class Appointment {
 
   @UpdateDateColumn()
   updated_at: string;
+
+  @OneToMany(() => Appointment, (appointment) => appointment.provider)
+  appointments: Appointment[];
 }
 
-export default Appointment;
+export default User;
